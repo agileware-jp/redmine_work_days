@@ -1,0 +1,49 @@
+# English strings go here for Rails i18n
+ja:
+  rest_day: "会社休日設定"
+  rest_days: "会社休日設定"
+  
+  label_rest_day: "会社休日"
+  label_rest_days: "会社休日一覧"
+  label_rest_day_day: "日付"
+  label_rest_day_description: "説明"
+  
+  field_rest_day_day: "日付"
+  field_rest_day_description: "説明"
+  
+  # import
+  label_import_csv: "CSVから読み込む"
+  notice_import_rest_days_success: "CSV読み込みが成功しました。"
+  
+  # delete
+  label_delete_rest_days_separator: "から"
+  label_delete_rest_days_description: "までの会社休日設定を削除します。"
+  label_delete_rest_days: "会社休日削除"
+  submit_delete_rest_days: "会社休日を削除"
+  notice_delete_rest_days_success: "%{count}件のデータが削除されました。"
+  
+  # year select
+  label_prev_year: "《前"
+  label_current_year: "今年"
+  label_next_year: "次》"
+  
+  activemodel:
+    attributes:
+      rest_day_csv:
+        file: "ファイル"
+      rest_day_range:
+        from: "開始日"
+        to: "終了日"
+    errors:
+      models:
+        rest_day_csv:
+          attributes:
+            file:
+              invalid: "が不正です。"
+        rest_day_range:
+          attributes:
+            to:
+              invalid: "が不正です。"
+            from:
+              invalid: "が不正です。"
+              greater_than: "は %{to} よりも前に設定してください。"

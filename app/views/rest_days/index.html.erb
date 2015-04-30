@@ -1,0 +1,72 @@
+<h2><%=l(:label_rest_days)%></h2>
+
+<%= error_messages_for @rest_day_csv %>
+<%= error_messages_for @rest_day_range %>
+
+<h3><%=l(:label_import_csv)%></h3>
+<div class="box tabular">
+  <%= form_for @rest_day_csv, :multipart => true, :url => import_rest_days_path do |f| %>
+  <%= f.file_field :file, :required => true %>
+  <%= submit_tag l(:label_import_csv), :id => "create" %>
+  <%- end -%>
+  
+  <div style="margin-top: 10px;">
+    <h4>読み込みCSVのフォーマット(例)</h4>
+    <div class="box tabular">
+      2013-04-29,昭和の日<br />
+      2013-05-03,憲法記念日<br />
+      2013-05-04,みどりの日<br />
+      2013-05-05,こどもの日
+    </div>
+  </div
+</div>
+
+<h3><%=l(:label_delete_rest_days)%></h3>
+<div class="box tabular">
+  <%= form_for @rest_day_range, :multipart => true, :url => range_delete_rest_days_path, :method => :delete do |f| %>
+  <div style="margin-bottom: 10px;">
+    <%= f.text_field :from, :size => 10, :required => true %><%= calendar_for('rest_day_range_from') %>
+    <%= l(:label_delete_rest_days_separator) %>
+    <%= f.text_field :to, :size => 10, :required => true %><%= calendar_for('rest_day_range_to') %>
+    <%= l(:label_delete_rest_days_description) %>
+  </div>
+  
+  <%= submit_tag l(:submit_delete_rest_days), :id => "delete" %>
+  <%- end -%>
+</div>
+
+<h3><%=l(:label_rest_days)%> - <%= @year.year -%></h3>
+
+<div style="margin-bottom: 10px;">
+  <div style="float:left;">
+    <%= link_to l(:label_prev_year), rest_days_path(:year => (@year - 1.years).year) %>&nbsp;|&nbsp;
+  </div>
+  <div style="float:left;">
+    <%= link_to l(:label_current_year), rest_days_path(:year => Date.today.year) %>&nbsp;|&nbsp;
+  </div>
+  <div style="float:left;">
+    <%= link_to l(:label_next_year), rest_days_path(:year => (@year + 1.years).year) %>
+  </div>
+  <div style="clear:both;">
+  </div>
+</div>
+<div class="autoscroll">
+<table class="list issues">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th><%= h(l(:field_rest_day_day)) %></th>
+      <th><%= h(l(:field_rest_day_description)) %></th>
+    </tr>
+  </thead>
+  <tbody>
+  <%- @rest_days.each do |rest_day| -%>
+  <tr id="rest_day-<%= rest_day.id %>" class="rest_day <%= cycle('odd', 'even') %>">
+    <td class="id"><%= rest_day.id %></td>
+    <td class="day" width="100"><%= rest_day.day %></td>
+    <td class="description"><%= rest_day.description %></td>
+  </tr>
+  <% end -%>
+  </tbody>
+</table>
+</div>

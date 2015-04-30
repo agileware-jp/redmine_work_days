@@ -1,0 +1,40 @@
+# English strings go here for Rails i18n
+en:
+  rest_day: "Rest Day"
+  rest_days: "Rest Days"
+  
+  label_rest_day: "Rest Day"
+  label_rest_days: "Rest Days"
+  label_rest_day_day: "Day"
+  label_rest_day_description: "Date"
+  
+  field_rest_day_day: "Date"
+  field_rest_day_description: "Description"
+  
+  # import
+  label_import_csv: "Import from CSV"
+  notice_import_rest_days_success: "Import successful finished."
+  
+  # delete
+  label_delete_rest_days_separator: "-"
+  label_delete_rest_days_description: ""
+  label_delete_rest_days: "Delete Rest Days"
+  submit_delete_rest_days: "Delete Rest Days"
+  notice_delete_rest_days_success: "Success %{count} Rest Days Deleted."
+  
+  # year select
+  label_prev_year: "<< Prev Year"
+  label_current_year: "Current Year"
+  label_next_year: "Next Year >>"
+  
+  activemodel:
+    attributes:
+      rest_day_range:
+        from: "From Date"
+        to: "To Date"
+    errors:
+      models:
+        rest_day_range:
+          attributes:
+            from:
+              greater_than: "Please set date before %{count}"
