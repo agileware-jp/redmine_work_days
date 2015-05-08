@@ -11,7 +11,7 @@ ActionDispatch::Callbacks.to_prepare do
   end
 end
 
-Redmine::Plugin.register :rest_day do
+Redmine::Plugin.register :redmine_work_days do
   name 'Redmine Work Days'
   author 'Agileware Inc.'
   description ''
