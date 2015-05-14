@@ -15,6 +15,14 @@ en:
   label_import_csv: "Import from CSV"
   notice_import_rest_days_success: "Import successful finished."
   
+  # create
+  label_create_rest_day: "Add Rest Days"
+  label_create_rest_day_day: "Day:"
+  label_create_rest_day_description: "Date:"
+  submit_create_rest_day: "Add Rest Days"
+  notice_create_rest_day_success: "Success Rest Days Added"
+  alert_create_rest_day_failure: "Failure Rest Days Added"
+
   # delete
   label_delete_rest_days_separator: "-"
   label_delete_rest_days_description: ""
