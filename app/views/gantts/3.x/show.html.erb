@@ -238,7 +238,7 @@
     height = g_height + header_height - 1
     wday = @gantt.date_from.cwday
   %>
-  <% (@gantt.date_to - @gantt.date_from + 1).to_i.times do %>
+  <% (@gantt.date_from .. @gantt.date_to).each do |g_date| %>
     <%
       width =  zoom - 1
       style  = ""
