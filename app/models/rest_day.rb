@@ -1,6 +1,8 @@
 class RestDay < ActiveRecord::Base
   unloadable
   
+  attr_accessible :day, :description
+
   default_scope { order("#{RestDay.table_name}.day ASC") }
   
   scope :in_year, lambda{|year| where(:day => year.beginning_of_year..year.end_of_year)}
