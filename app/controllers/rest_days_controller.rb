@@ -12,10 +12,6 @@ class RestDaysController < ApplicationController
     @rest_day_range = RestDayRange.new
   end
 
-  def new
-     @rest_day = RestDay.new
-  end
-  
   def create
     @rest_day = RestDay.new(params[:rest_day])
     if @rest_day.save
