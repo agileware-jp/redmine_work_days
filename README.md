@@ -1,4 +1,4 @@
-# Redmine Work Days plugin
+# Redmine Work Days Plugin
 
 ## イントロダクション
 
