@@ -2,15 +2,15 @@ require File.expand_path('../../spec_helper', __FILE__)
 
 describe RestDaysController, type: :controller do
   describe 'POST create' do
-    login_user
+    before { login_user }
 
     context '登録が正常終了する場合' do
-      let(:params){ build(:rest_day_right) }
+      let(:params){ {rest_day: { day: '2015-05-13', description: 'testdata' }} }
+      subject { post :create, params }
 
       it 'RestDayが1増加' do
-        expect {
-          post :create, params
-        }.to change(RestDay, :count).by(1)
+        subject
+        expect(RestDay.count).to eq(1)
       end
     end
   end
