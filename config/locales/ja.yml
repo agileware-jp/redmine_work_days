@@ -15,6 +15,14 @@ ja:
   label_import_csv: "CSVから読み込む"
   notice_import_rest_days_success: "CSV読み込みが成功しました。"
   
+  # create
+  label_create_rest_day: "会社休日追加"
+  label_create_rest_day_day: "日付:"
+  label_create_rest_day_description: "説明:"
+  submit_create_rest_day: "会社休日を追加"
+  notice_create_rest_day_success: "休日設定を追加しました。"
+  alert_create_rest_day_failure: "休日設定の追加に失敗しました。"
+
   # delete
   label_delete_rest_days_separator: "から"
   label_delete_rest_days_description: "までの会社休日設定を削除します。"

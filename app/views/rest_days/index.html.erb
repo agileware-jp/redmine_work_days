@@ -18,7 +18,21 @@
       2013-05-04,みどりの日<br />
       2013-05-05,こどもの日
     </div>
-  </div
+  </div>
+</div>
+
+<h3><%=l(:label_create_rest_day)%></h3>
+<div class="box tabular">
+  <%= form_for @rest_day, url: rest_days_path do |f| %>
+  <div style="margin-bottom: 10px;">
+    <%= l(:label_create_rest_day_day) %>
+    <%= f.text_field :day, :size => 10, :required => true %><%= calendar_for('rest_day_day') %>
+    <%= l(:label_create_rest_day_description) %>
+    <%= f.text_field :description, :size => 20, :required => true %>
+  </div>
+  
+  <%= submit_tag l(:submit_create_rest_day) %>
+  <%- end -%>
 </div>
 
 <h3><%=l(:label_delete_rest_days)%></h3>

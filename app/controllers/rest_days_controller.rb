@@ -5,10 +5,20 @@ class RestDaysController < ApplicationController
   unloadable
 
   def index
+    @rest_day = RestDay.new
     @rest_days = RestDay.in_year(@year).all
     
     @rest_day_csv = RestDayCsv.new
     @rest_day_range = RestDayRange.new
+  end
+
+  def create
+    @rest_day = RestDay.new(params[:rest_day])
+    if @rest_day.save
+      redirect_to rest_days_path, :notice => l(:notice_create_rest_day_success)
+    else      
+      redirect_to rest_days_path, :alert => l(:alert_create_rest_day_failure)
+    end
   end
   
   def import
@@ -38,6 +48,7 @@ class RestDaysController < ApplicationController
       @rest_days.delete_all
       redirect_to rest_days_path, :notice => l(:notice_delete_rest_days_success, :count => @count)
     else
+      @rest_day = RestDay.new
       @rest_day_csv = RestDayCsv.new
       @rest_days = RestDay.in_year(@year).all
       render :action => "index"
