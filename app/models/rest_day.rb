@@ -11,9 +11,6 @@ class RestDay < ActiveRecord::Base
   validates_presence_of :day
   validates_length_of :description, :maximum => 200, :allow_nil => true
 
-  after_save :clear!
-  after_destroy :clear!
-
   class << self
     def rest_day?(date)
       date = Date.parse(date) unless date.is_a?(Date)
@@ -27,9 +24,5 @@ class RestDay < ActiveRecord::Base
     def clear!
       @rest_days = nil
     end
-  end
-
-  def clear!
-    self.class.clear!
   end
 end

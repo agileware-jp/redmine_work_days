@@ -20,20 +20,10 @@ class RestDayCsv
     attributes.each do |name, value|
       send("#{name}=", value)
     end
-    
-    if self.valid? && self.file.present?
-      import_from_csv
-    end
   end
   
   def persisted?
     false
-  end
-  
-  private
-  def check_file_format
-    return if self.file.blank?
-    errors.add(:file, :invalid) unless MIME::Types.type_for(self.file.original_filename).include?('text/csv')
   end
   
   def import_from_csv
@@ -48,9 +38,15 @@ class RestDayCsv
       end
     end
 
-    rescue => e
-      Rails.logger.warn("import_from_csv error.")
-      Rails.logger.warn(e)
-      raise "CSV読み込みエラー: #{line_num}行目でエラーが発生しました"
+  rescue => e
+    Rails.logger.warn("import_from_csv error.")
+    Rails.logger.warn(e)
+    raise "CSV読み込みエラー: #{line_num}行目でエラーが発生しました"
+  end
+
+  private
+  def check_file_format
+    return if self.file.blank?
+    errors.add(:file, :invalid) unless MIME::Types.type_for(self.file.original_filename).include?('text/csv')
   end
 end
