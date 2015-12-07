@@ -27,7 +27,7 @@ class RestDaysController < ApplicationController
 
     if @rest_day_csv.file.present? && @rest_day_csv.valid?
       begin
-        @rest_day_csv.import_from_csv
+        @rest_day_csv.import_from_csv!
         RestDay.clear!
       rescue => e
         flash[:error] = e.message

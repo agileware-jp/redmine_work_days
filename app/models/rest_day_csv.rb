@@ -26,7 +26,7 @@ class RestDayCsv
     false
   end
   
-  def import_from_csv
+  def import_from_csv!
     io_string = NKF.nkf('-w', self.file.read)
     
     line_num = 1
