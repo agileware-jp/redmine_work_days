@@ -45,7 +45,7 @@ class RestDaysController < ApplicationController
     if @rest_day_range.valid?
       @rest_days = RestDay.between(@rest_day_range.from, @rest_day_range.to)
       @count = @rest_days.count
-      @rest_days.delete_all
+      @rest_days.destroy_all
       redirect_to rest_days_path, :notice => l(:notice_delete_rest_days_success, :count => @count)
     else
       @rest_day = RestDay.new
