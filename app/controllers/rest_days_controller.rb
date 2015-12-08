@@ -25,7 +25,7 @@ class RestDaysController < ApplicationController
   def import
     @rest_day_csv = RestDayCsv.new(params[:rest_day_csv])
 
-    if @rest_day_csv.file.present? && @rest_day_csv.valid?
+    if @rest_day_csv.valid?
       begin
         @rest_day_csv.import_from_csv!
         RestDay.clear!

@@ -6,31 +6,30 @@ class RestDayCsv
   include ActiveModel::Validations
   include ActiveModel::Conversion
   extend ActiveModel::Naming
-  
+
   DAY_COLUMN = 0
   DESCRIPTION_COLUMN = 1
-  
-  
+
   attr_accessor :file
   attr_accessor :headers, :data_rows
-  
+
   validate :check_file_format
-  
+  validates :file, presence: true
+
   def initialize(attributes = {})
     attributes.each do |name, value|
       send("#{name}=", value)
     end
   end
-  
+
   def persisted?
     false
   end
-  
+
   def import_from_csv!
     io_string = NKF.nkf('-w', self.file.read)
-    
+
     line_num = 1
-    error_lines = []
     ActiveRecord::Base.transaction do
       CSV.parse(io_string) do |row|
         RestDay.create!(:day => row[DAY_COLUMN], :description => row[DESCRIPTION_COLUMN])
@@ -46,7 +45,6 @@ class RestDayCsv
 
   private
   def check_file_format
-    return if self.file.blank?
     errors.add(:file, :invalid) unless MIME::Types.type_for(self.file.original_filename).include?('text/csv')
   end
 end
