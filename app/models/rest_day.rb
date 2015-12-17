@@ -7,7 +7,7 @@ class RestDay < ActiveRecord::Base
   
   scope :in_year, lambda{|year| where(:day => year.beginning_of_year..year.end_of_year)}
   scope :between, lambda{|day1, day2| where(:day => day1..day2)}
-  
+
   validates_presence_of :day
   validates_length_of :description, :maximum => 200, :allow_nil => true
 
