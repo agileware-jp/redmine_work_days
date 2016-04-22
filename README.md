@@ -21,7 +21,7 @@ $ bundle install
 $ bundle exec rake redmine:plugins:migrate NAME=redmine_work_days
 ```
 
-### アンインストール
+## アンインストール方法
 
 ```
 $ cd [Redmine Root]
