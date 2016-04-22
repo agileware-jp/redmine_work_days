@@ -14,13 +14,15 @@ Redmineに個別の休業日の設定を追加するプラグインです。
 
 ## インストール方法
 
+以下は `production` 環境でRedmineを動作させている前提です。
+
 ### Gitを使う
 
 ```
 $ cd [Redmine Root]
 $ git clone git@github.com:agileware-jp/redmine_work_days.git plugins/redmine_work_days
 $ bundle install
-$ bundle exec rake redmine:plugins:migrate NAME=redmine_work_days
+$ RAILS_ENV=production bundle exec rake redmine:plugins:migrate NAME=redmine_work_days
 ```
 
 ### ZIPファイルを使う
@@ -39,14 +41,16 @@ $ bundle exec rake redmine:plugins:migrate NAME=redmine_work_days
 
   ```
   $ bundle install
-  $ bundle exec rake redmine:plugins:migrate NAME=redmine_work_days
+  $ RAILS_ENV=production bundle exec rake redmine:plugins:migrate NAME=redmine_work_days
   ```
 
 ## アンインストール方法
 
+以下は `production` 環境でRedmineを動作させている前提です。
+
 ```
 $ cd [Redmine Root]
-$ bundle exec rake redmine:plugins:migrate NAME=redmine_work_days VERSION=0
+$ RAILS_ENV=production bundle exec rake redmine:plugins:migrate NAME=redmine_work_days VERSION=0
 $ rm -rf plugins/redmine_work_days
 ```
 
