@@ -14,9 +14,8 @@ end
 Redmine::Plugin.register :redmine_work_days do
   name 'Redmine Work Days'
   author 'Agileware Inc.'
-  description ''
-  version '0.9.0'
-  url 'http://agileware.jp'
+  description 'This plugin enables to set the holidays.'
+  version '1.1.0'
   author_url 'http://agileware.jp'
 
   menu :admin_menu, :rest_days, { :controller => 'rest_days', :action => 'index' }, :caption => :rest_days
