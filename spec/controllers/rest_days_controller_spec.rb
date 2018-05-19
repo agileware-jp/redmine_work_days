@@ -23,10 +23,7 @@ describe RestDaysController, type: :controller do
       let(:params) { { rest_day_csv: { file: create_uploaded_file(import_file, 'text/csv') } } }
       subject { post :import, params }
 
-      it 'RestDayが4増加' do
-        subject
-        expect(RestDay.count).to eq(4)
-      end
+      it { expect { subject }.to(change { RestDay.count }.by(4)) }
     end
 
     context 'CSVインポートが失敗する場合' do
