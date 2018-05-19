@@ -20,7 +20,7 @@ describe RestDaysController, type: :controller do
 
     context 'CSVインポートが成功する場合' do
       let(:import_file) { File.expand_path('../../fixtures/rest_days.csv', __FILE__) }
-      let(:params) { { rest_day_csv: { file: create_uploaded_file(import_file, 'text/csv') } } }
+      let(:params) { { rest_day_csv: { file: fixture_file_upload(import_file) } } }
       subject { post :import, params }
 
       it { expect { subject }.to(change { RestDay.count }.by(4)) }
@@ -31,7 +31,7 @@ describe RestDaysController, type: :controller do
         render_views
 
         let(:import_file) { File.expand_path('../../fixtures/rest_days.txt', __FILE__) }
-        let(:params) { { rest_day_csv: { file: create_uploaded_file(import_file, 'text/plain') } } }
+        let(:params) { { rest_day_csv: { file: fixture_file_upload(import_file) } } }
         subject { post :import, params }
 
         it { expect { subject }.to_not(change { RestDay.count }) }
