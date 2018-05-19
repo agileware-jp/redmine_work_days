@@ -34,10 +34,7 @@ describe RestDaysController, type: :controller do
         let(:params) { { rest_day_csv: { file: create_uploaded_file(import_file, 'text/plain') } } }
         subject { post :import, params }
 
-        it 'RestDayが登録されない' do
-          subject
-          expect(RestDay.count).to eq(0)
-        end
+        it { expect { subject }.to_not(change { RestDay.count }) }
 
         it 'フラッシュメッセージを含んだindex画面を表示する' do
           subject
