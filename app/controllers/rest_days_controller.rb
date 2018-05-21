@@ -36,6 +36,7 @@ class RestDaysController < ApplicationController
       end
       redirect_to rest_days_path, :notice => l(:notice_import_rest_days_success, :count => @count)
     else
+      @rest_day = RestDay.new
       @rest_days = RestDay.in_year(@year).all
       @rest_day_range = RestDayRange.new
       render :action => "index"
