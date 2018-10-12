@@ -20,7 +20,7 @@ Redmine::Plugin.register :redmine_work_days do
   author_url 'http://agileware.jp'
 
   menu :admin_menu, :rest_days,
-  { :controller => 'rest_days', :action => 'index' },
-  :caption => :rest_days,
-  :html => { :class => 'icon icon-redmine-work-days'}
+       { :controller => 'rest_days', :action => 'index' },
+       :caption => :rest_days,
+       :html => { :class => 'icon icon-redmine-work-days'}
 end
