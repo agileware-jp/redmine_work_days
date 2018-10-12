@@ -2,6 +2,7 @@
 
 require 'redmine'
 require 'redmine_utils_patch'
+require 'redmine_work_days/hooks'
 
 ActionDispatch::Callbacks.to_prepare do
   require_dependency 'redmine/utils'
@@ -21,5 +22,5 @@ Redmine::Plugin.register :redmine_work_days do
   menu :admin_menu, :rest_days,
   { :controller => 'rest_days', :action => 'index' },
   :caption => :rest_days,
-  :html => { :class => 'icon icon-rest-days'}
+  :html => { :class => 'icon icon-redmine-work-days'}
 end
