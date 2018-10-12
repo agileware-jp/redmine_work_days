@@ -18,5 +18,8 @@ Redmine::Plugin.register :redmine_work_days do
   version '1.3.0'
   author_url 'http://agileware.jp'
 
-  menu :admin_menu, :rest_days, { :controller => 'rest_days', :action => 'index' }, :caption => :rest_days
+  menu :admin_menu, :rest_days,
+  { :controller => 'rest_days', :action => 'index' },
+  :caption => :rest_days,
+  :html => { :class => 'icon icon-rest-days'}
 end
