@@ -26,7 +26,7 @@
   <%= form_for @rest_day, url: rest_days_path do |f| %>
   <div style="margin-bottom: 10px;">
     <%= l(:label_create_rest_day_day) %>
-    <%= f.date_field :day, :size => 10, :required => true %><%= calendar_for('rest_day_day') %>
+    <%= f.date_field :day, :size => 10, :required => true %><%= calendar_for_with_datepicker_fallback('rest_day_day') %>
     <%= l(:label_create_rest_day_description) %>
     <%= f.text_field :description, :size => 20, :required => true %>
   </div>
@@ -39,9 +39,9 @@
 <div class="box tabular">
   <%= form_for @rest_day_range, :multipart => true, :url => range_delete_rest_days_path, :method => :delete do |f| %>
   <div style="margin-bottom: 10px;">
-    <%= f.date_field :from, :size => 10, :required => true %><%= calendar_for('rest_day_range_from') %>
+    <%= f.date_field :from, :size => 10, :required => true %><%= calendar_for_with_datepicker_fallback('rest_day_range_from') %>
     <%= l(:label_delete_rest_days_separator) %>
-    <%= f.date_field :to, :size => 10, :required => true %><%= calendar_for('rest_day_range_to') %>
+    <%= f.date_field :to, :size => 10, :required => true %><%= calendar_for_with_datepicker_fallback('rest_day_range_to') %>
     <%= l(:label_delete_rest_days_description) %>
   </div>
   
